@@ -1,10 +1,4 @@
-/*****************************************************
- * interface Deque
- * Includes most methods listed in Java API
- * (Local version, to override built-in Java implementation.)
- ******************************************************/
-
-public interface Deque<T> {
+public class Deque<T> {
 
     //return the number of elements in the deque
     public int size();
@@ -59,4 +53,4 @@ public interface Deque<T> {
     //returning true upon success 
     public void push( T x );
 
-}//end interface Deque                                                                                           
+}//end class DNDeque                                                                                 
