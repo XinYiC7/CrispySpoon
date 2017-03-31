@@ -1,4 +1,14 @@
-public class Deque<T> {
+public class DNDeque<T> implements Deque<T> {
+
+    private DLLNode<T> _front, _end;
+    private int _size;
+
+    // default constructor creates an empty deque
+    public DNDeque()
+    {
+	_front = _end = null;
+	_size = 0;
+    }
 
     //return the number of elements in the deque
     public int size();
@@ -53,4 +63,28 @@ public class Deque<T> {
     //returning true upon success 
     public void push( T x );
 
+    public boolean isEmpty()
+    { 
+	return _size == 0;
+    }
+
+    // print each node
+    public String toString() 
+    { 
+	String retStr = "FRONT->";
+	DLLNode<T> tmp = _front; //init tr
+	while( tmp != null ) {
+	    retStr += tmp.getValue() + "->";
+	    tmp = tmp.getNext();
+	}
+	retStr += "END";
+	return retStr;
+    }
+    
+    //main method for testing
+    public static void main( String[] args ) 
+    {
+
+    }//end main
+    
 }//end class DNDeque                                                                                 
