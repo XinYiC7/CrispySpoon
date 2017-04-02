@@ -1,3 +1,9 @@
+// CrispySpoon
+// Xin Yi Chen, Joanna Zhou
+// APCS2 pd4
+// LAB #02: All Hands on Deque!
+// 2017-4-1
+
 /*****************************************************
  * class DLLNode
  * Implements a node, for use in lists and other container classes.
