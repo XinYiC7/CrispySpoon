@@ -3,22 +3,22 @@
 ## Method Selection: List
 
 ```
-size(),
-peek(),
-peekFirst(),
-peekLast(),
-add( T x ),
-addFirst( T x ),
-addLast( T x ),
-remove(),
-removeFirst(),
-removeLast(),
-contains( T x ),
-remove( T x ),
-removeFirstOccurrence( T x ),
-removeLastOccurrence( T x ),
-pop(),
-push( T x )
+1.size()
+2.peek()
+3.peekFirst()
+4.peekLast()
+5.add( T x )
+6.addFirst( T x )
+7.addLast( T x )
+8.remove()
+9.removeFirst()
+10.removeLast()
+11.contains( T x )
+12.remove( T x )
+13.removeFirstOccurrence( T x )
+14removeLastOccurrence( T x )
+15.pop()
+16.push( T x )
 ```
 
 ## Method Selection: Explanation
