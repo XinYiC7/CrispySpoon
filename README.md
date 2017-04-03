@@ -1,7 +1,8 @@
 # CrispySpoon
 
 ## Method Selection: List
-Deque methods that we implemented:
+
+```
 size(),
 peek(),
 peekFirst(),
@@ -17,7 +18,8 @@ remove( T x ),
 removeFirstOccurrence( T x ),
 removeLastOccurrence( T x ),
 pop(),
-push( T x ).
+push( T x )
+```
 
 ## Method Selection: Explanation
 For our implementation of the class Deque, we decided to implement all the methods listed in the Java API except element(), getFirst(), getLast(), offer() methods, poll() methods. 
