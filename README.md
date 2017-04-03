@@ -1,4 +1,5 @@
 # CrispySpoon
+## Group Members: Xin Yi Chen, Joanna Zhou
 
 ## Method Selection: List
 
