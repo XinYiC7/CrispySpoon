@@ -58,6 +58,7 @@ public class DNDeque<T> implements Deque<T> {
     //returning true upon success 
     public boolean add( T x )
     {
+	//if adding first node
 	if( isEmpty() ){
 	    _front = _end = new DLLNode<T>(x, _end, null);
 	    _size ++;
@@ -71,6 +72,7 @@ public class DNDeque<T> implements Deque<T> {
     //inserts the specified element at the front of the deque 
     public void addFirst( T x )
     {
+	//if adding first node
 	if( isEmpty() ){
 	    add(x);
 	}
@@ -84,6 +86,7 @@ public class DNDeque<T> implements Deque<T> {
     //inserts the specified element at the end of the deque
     public void addLast( T x )
     {
+	//if adding first node
 	if( isEmpty() ){
 	    add(x);
 	}
@@ -97,9 +100,11 @@ public class DNDeque<T> implements Deque<T> {
     //Retrieves and removes the first element of this deque.
     public T remove()
     {
+	//if theres nothing to remove
 	if (isEmpty()){
 	    return null;
 	}
+	//if theres only one node left
 	if ( size() == 1 ){
 	    T temp = _front.getCargo();
 	    _front = _end = null;
@@ -112,9 +117,11 @@ public class DNDeque<T> implements Deque<T> {
     //Retrieves and removes the first element of this deque.
     public T removeFirst()
     {
+	//if theres nothing to remove
 	if (isEmpty()){
 	    return null;
 	}
+	//if theres only one node left
 	if ( size() == 1 ){
 	    return remove();
 	}
@@ -128,9 +135,11 @@ public class DNDeque<T> implements Deque<T> {
     //Retrieves and removes the last element of this deque.
     public T removeLast()
     {
+	//if theres nothing to remove
 	if (isEmpty()){
 	    return null;
 	}
+	//if theres only one node left
 	if ( size() == 1 ){
 	    return remove();
 	}
@@ -145,7 +154,10 @@ public class DNDeque<T> implements Deque<T> {
     public boolean contains( T x )
     {
 	DLLNode<T> temp = _front;
+
+	//traverse through the list of nodes
 	for (int y = 0; y < _size; y ++){
+	    //if matches
 	    if (temp.getCargo().equals(x)){
 		return true;
 	    }
@@ -156,6 +168,7 @@ public class DNDeque<T> implements Deque<T> {
 
     //Removes the first occurrence of the specified element from this deque.
     public boolean remove( T x ){
+	//if x is not in the list 
 	if ( !contains(x) ){
 	    System.out.println("the deque does not contain "+ x + " .........");
 	    return false;
@@ -166,19 +179,24 @@ public class DNDeque<T> implements Deque<T> {
     //Removes the first occurrence of the specified element from this deque.
     public boolean removeFirstOccurrence( T x )
     {
+	//if x is not in the list 
 	if ( !contains(x) ){
 	    System.out.println("the deque does not contain "+ x + " .........");
 	    return false;
 	}
+	
 	DLLNode<T> temp = _front;
 	for (int y = 0; y < _size; y ++){
 	    if (temp.getCargo().equals(x)){
+		//if matches with the first node
 		if (temp.equals(_front)){
 		    removeFirst();
 		}
+		//if matches with the last node
 		else if (temp.equals(_end)){
 		    removeLast();
 		}
+		//if matches with a node in between
 		else {
 		    temp.getPrev().setNext(temp.getNext());
 		    _size --;
@@ -193,19 +211,24 @@ public class DNDeque<T> implements Deque<T> {
     //Removes the last occurrence of the specified element from this deque.
     public boolean removeLastOccurrence( T x )
     {
+	//if x is not in the list 
 	if ( !contains(x) ){
 	    System.out.println("the deque does not contain "+ x + " .........");
 	    return false;
 	}
+	
 	DLLNode<T> temp = _end;
 	for (int y = 0; y < _size; y ++){
 	    if (temp.getCargo().equals(x)){
+		//if matches with the first node
 		if (temp.equals(_front)){
 		    removeFirst();
 		}
+		//if matches with the last node
 		else if (temp.equals(_end)){
 		    removeLast();
 		}
+		//if matches with a node in between 
 		else {
 		    temp.getNext().setPrev(temp.getPrev());
 		    _size --;
@@ -233,7 +256,7 @@ public class DNDeque<T> implements Deque<T> {
 	addFirst(x);
     }
 
-    // print each node
+    //print each node
     public String toString() 
     { 
 	String retStr = "FRONT->";
