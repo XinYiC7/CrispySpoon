@@ -4,37 +4,21 @@
 
 ```
 1. size()
-
 2. peek()
-
 3. peekFirst()
-
 4. peekLast()
-
 5. add( T x )
-
 6. addFirst( T x )
-
 7. addLast( T x )
-
 8. remove()
-
 9. removeFirst()
-
 10. removeLast()
-
 11. contains( T x )
-
 12. remove( T x )
-
 13. removeFirstOccurrence( T x )
-
 14. removeLastOccurrence( T x )
-
 15. pop()
-
 16. push( T x )
-
 ```
 
 ## Method Selection: Explanation
