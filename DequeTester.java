@@ -1,94 +1,45 @@
-//Iris Tao
-//APCS2 pd4
-//HW #29: Stress is the Best
-//2017-04-05
-
- 
-import java.util.Deque;
-import java.util.LinkedList;
-
+/*James Zhang
+APCS2 pd4
+HW #29: Stress is the Best
+Due W 2017-04-05, 8:00am, EST.*/
 
 public class DequeTester{
- 
-        
-    public static void main(String[] args){
-	
-        Deque<String> d = new LinkedList<String>();
 
-	//============= addFirst
-	//inserts an element at the front of the deque, return void
-	//[] -> [apple]
-	//[apple] -> [bigApple, apple]
-	
-	
-	d.addFirst("apple");
-	d.addFirst("bigApple");
-	System.out.println("addFirst...\nreturn: \n" + "void");
-	System.out.println( d + "\n");
+   
+    public static void main(String args[]) {
+	DNDeque<Integer> deque = new DNDeque<Integer>();
 
-	//============= addLast
-	//inserts an element at the end of the deque, return void
-	//[bigApple, apple] -> [bigApple, apple, smallApple]
 
-	d.addLast("smallApple");
-	System.out.println("addLast...\nreturn: \n" + "void");
-	System.out.println( d + "\n");
-
-	/*	//============= pollFirst
-	//removes the first element of the deque - returns null if deque is empty
-	//return the removed element
-	//[bigApple, apple, smallApple] -> [apple, smallApple]
-	//return: bigApple
+	for (int i = 0; i < 10; i++){
+	    deque.addFirst(i);
+	}	
+	System.out.println("Starts as: " + deque);
+	System.out.println(" returning size (should be 10):" + deque.size());
+	/*
 	
-	System.out.println("pollFirst...\nreturn: \n" + d.pollFirst());
-	System.out.println( d+ "\n");
+	//removes all elements to test size() and peek at 0	
+	for (int x = 0; x < 10; x++){
+	    deque.removeFirst();
+	}
+	System.out.println("Should be empty: " + deque);
+		System.out.println(" returning size (should be 0):" + deque.size());
+		System.out.println(" peeking front (should be error):" + deque.peekFirst());
+	System.out.println(" peeking back (should be error):" + deque.peekLast());
 	*/
-
-
-	//============= peekFirst
-	//returns the first element of the deque - returns null if deque is empty
-	//[apple, smallApple] -> [apple, smallApple]
-	//return: apple
-
-	System.out.println("peekFirst...\nreturn: \n" + d.peekFirst());
-	System.out.println(d+ "\n");
-
+	//System.out.println("removing front (should be an error):" + deque.removeFirst(1000));
+	//System.out.println("removing back (should be an error):" + deque.removeLast(1000));
 
 	
-	//============= contains
-	//Returns true if this deque contains the specified element.
-	//[apple, smallApple] -> [apple, smallApple]
-	//d.contains("apple") --> return true
-	//d.contains("pear") --> return false
-
-
-	System.out.println("contains...");
-	System.out.print("d.contains('apple') --> return ");
-	System.out.println("contains...");
-	System.out.print("d.contains('pear') --> return ");
-	System.out.println(d.contains("pear"));
-			  
-
-	//============= add
-	//Inserts the specified element into the queue represented by this deque (in other words, at the tail of this deque) if it is possible to do so immediately without violating capacity restrictions, returning true upon success and throwing an IllegalStateException if no space is currently available.
-	//[apple, smallApple] -> [apple, smallAppl, hugeApple]
-	//return: true
-
-	System.out.println("\nadd...\nreturn: \n" + d.add("hugeApple"));
-	System.out.println(d+ "\n");
-
-
-	//============= removeFirstOccurrence(Object o)
-	//Removes the first occurrence of the specified element from this deque.
-	//d.removeFirstOccurrence("hugeApple");
-	//[apple, smallApple, hugeApple] -> [apple, smallApple]
-	//return: true
-
-	System.out.println("\nremoveFirstOccurrence...\nreturn: \n" + 	d.removeFirstOccurrence("hugeApple"));
-			   
-	System.out.println(d+ "\n");
+        //cycles elements as if iterating
+	for (int i = 0 ; i < 7; i++){
+	    int temp = deque.peekFirst();
+	    deque.removeFirst();
+	    deque.addLast(temp);
+	}
+	System.out.println(deque);
+	
 	
 
-	
     }
+
 }
