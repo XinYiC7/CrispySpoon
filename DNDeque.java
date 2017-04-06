@@ -69,7 +69,11 @@ public class DNDeque<T> implements Deque<T> {
 	return true;
     }
 
-    //inserts the specified element at the front of the deque 
+    //inserts the specified element at the front of the deque
+    /******************************************
+    If the Deque is empty, the add method is used.
+    Else, the front gets a node before it and that node is made the new front.
+     ******************************************/
     public void addFirst( T x )
     {
 	//if adding first node
@@ -84,6 +88,10 @@ public class DNDeque<T> implements Deque<T> {
     }
 
     //inserts the specified element at the end of the deque
+    /******************************************
+    If the Deque is empty, the add method is used.
+    Else, the end node gets a node after and that node is the new end.
+     ******************************************/
     public void addLast( T x )
     {
 	//if adding first node
@@ -98,6 +106,11 @@ public class DNDeque<T> implements Deque<T> {
     }
 
     //Retrieves and removes the first element of this deque.
+    /******************************************
+    If the Deque is empty, nothing is returned.
+    Else, if there is only one node left, front and end are set to null.
+    Else, removeLast().
+     ******************************************/
     public T remove()
     {
 	//if theres nothing to remove
@@ -115,6 +128,11 @@ public class DNDeque<T> implements Deque<T> {
     }
 
     //Retrieves and removes the first element of this deque.
+    /******************************************
+    If empty, return null.
+    Else, if one is left, remove().
+    Else, Set front to the node after the front and set prev of that to null.
+     ******************************************/
     public T removeFirst()
     {
 	//if theres nothing to remove
@@ -133,6 +151,11 @@ public class DNDeque<T> implements Deque<T> {
     }
 
     //Retrieves and removes the last element of this deque.
+    /******************************************
+    If empty, return null.
+    Else, if one is left, remove().
+    Else, Set end to the node before the end and set next of that to null.
+    ******************************************/
     public T removeLast()
     {
 	//if theres nothing to remove
@@ -151,6 +174,11 @@ public class DNDeque<T> implements Deque<T> {
     }
 
     //Returns true if this deque contains the specified element.
+    /******************************************
+    Traverses the string. If the cargo matches the search value, true is
+    returned. After the whole Deque is traversed without returning true, false
+    is returned.
+     ******************************************/
     public boolean contains( T x )
     {
 	DLLNode<T> temp = _front;
@@ -167,6 +195,10 @@ public class DNDeque<T> implements Deque<T> {
     }
 
     //Removes the first occurrence of the specified element from this deque.
+    /******************************************
+    If no x, false is returned, as well as an error message. First occurrance
+    is then removed.
+     ******************************************/
     public boolean remove( T x ){
 	//if x is not in the list 
 	if ( !contains(x) ){
@@ -177,6 +209,12 @@ public class DNDeque<T> implements Deque<T> {
     }
 
     //Removes the first occurrence of the specified element from this deque.
+    /******************************************
+    If x is not there, false is returned. Else the Deque is traversed from the
+    front to end. If the item is found at the front, removeFirst() is used,
+    else if at the end, removeEnd() is used, or the prev and next of the node
+    are connected, circumventing the node.
+     ******************************************/
     public boolean removeFirstOccurrence( T x )
     {
 	//if x is not in the list 
@@ -199,6 +237,7 @@ public class DNDeque<T> implements Deque<T> {
 		//if matches with a node in between
 		else {
 		    temp.getPrev().setNext(temp.getNext());
+		    temp.getNext().setPrev(temp.getPrev());
 		    _size --;
 		}
 		return true;
@@ -209,6 +248,12 @@ public class DNDeque<T> implements Deque<T> {
     }
 
     //Removes the last occurrence of the specified element from this deque.
+    /******************************************
+    If x is not there, false is returned. Else the Deque is traversed from the
+    end to front. If the item is found at the front, removeFirst() is used,
+    else if at the end, removeEnd() is used, or the prev and next of the node
+    are connected, circumventing the node.
+     ******************************************/
     public boolean removeLastOccurrence( T x )
     {
 	//if x is not in the list 
@@ -231,6 +276,7 @@ public class DNDeque<T> implements Deque<T> {
 		//if matches with a node in between 
 		else {
 		    temp.getNext().setPrev(temp.getPrev());
+		    temp.getPrev().setNext(temp.getNext());
 		    _size --;
 		}
 		return true;

@@ -31,3 +31,5 @@ We also implemented pop() and push() because it's interesting to see how we can 
 
 ## Architecture
 We chose to use doubly-linked node-based architecture because we don't need to traverse through the list when we want to remove or add in the front or end. We only need to change where the pointers are pointed toward for doubly-linked nodes. Doubly-linked node-based architecture would be more efficient and should have a faster runtime than array-based or ArrayList-based.
+
+## 2017-04-06 update: some block comments added.
